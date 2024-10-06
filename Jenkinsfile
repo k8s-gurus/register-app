@@ -9,37 +9,25 @@ pipeline {
             }
         }
 
-        stage('Build') {
-            steps {
-                // Replace with your actual build commands, e.g., npm install, Maven build, etc.
-                echo 'Building the project...'
-                sh 'echo Build step (replace with your actual build commands)'
-            }
-        }
-
         stage('Test') {
             steps {
-                // Replace with your actual test commands, e.g., npm test, pytest, etc.
+                // Simulating a test step
                 echo 'Running tests...'
-                sh 'echo Test step (replace with your actual test commands)'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                // Replace with your actual deploy commands if needed
-                echo 'Deploying the application...'
-                sh 'echo Deploy step (replace with your actual deploy commands)'
+                // This is a simple shell command to test the pipeline.
+                sh 'echo "Tests passed!"'
             }
         }
     }
 
     post {
+        always {
+            echo 'Cleaning up...'
+        }
         success {
-            echo 'Build succeeded!'
+            echo 'Pipeline completed successfully!'
         }
         failure {
-            echo 'Build failed!'
+            echo 'Pipeline failed.'
         }
     }
 }
